@@ -21,6 +21,7 @@ stages:
       dotnetSdkVersion: '3.1.100'
 
     steps:
+    - script: echo $SITE_URL
     - task: UseDotNet@2
       displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
       inputs:
@@ -138,7 +139,7 @@ stages:
         projects: '$(System.DefaultWorkingDirectory)/**/*UITests.csproj'
 
 
-        
+
 - stage: 'Staging'
   displayName: 'Deploy to the staging environment'
   dependsOn: Test
